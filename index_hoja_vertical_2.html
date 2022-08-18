@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+
+  	body,div,table,thead,tbody,tfoot,tr,th,td,p,h5{ font-family:"Montserrat"; font-size:small ; margin: 2px}
+  	body{
+  		box-sizing: border-box;
+  		max-width: 840px;
+  	}
+  	.subtitulo{
+  		font: 'Montserrat';
+  		font-size: 10px;
+  		font-weight:normal ;
+  	}
+  	.color{
+  		color:#691C32;
+  	}
+    /*
+  	.grids{
+  		display: grid;
+  		grid-template-columns: repeat(2, 1fr);
+  	}*/
+  	.col-20{
+      width: 20%;
+      height: auto;
+    }
+  	.col-25{
+  		width: 25%;
+      height: auto;
+  	}
+    .col-30{
+      width: 30%;
+      height: auto;
+    }
+    .col-40{
+      width: 40%;
+      height: auto;
+    }
+    .col-50{
+      width: 50%;
+      height: auto;
+    }
+    .col-60{
+      width: 60%;
+      height: auto;
+    }
+    .col-70{
+      width: 70%;
+      height: auto;
+    }
+  	.col-80{
+      width: 70%;
+      height: auto;
+    }
+  	.col-90{
+  		width: 90%;
+      height: auto;
+  	}
+  	.col-100{
+  		width: 90%;
+      height: auto;
+  	}
+  	.rectangulo{
+  		border:3px #BC955C solid;
+  		width: 20px;
+  		height: 8px;
+  	}
+  	.flex{
+  		display: flex;
+  	}
+  	.space-between{
+  		justify-content: space-between;
+  	}
+  	.flex-start{
+  		justify-content: flex-start;
+  	}
+    .center{
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    .wrap{
+  		flex-wrap: wrap;
+  	}
+  	.nowrap{
+  		flex-wrap: nowrap;
+  	}
+    .container{
+      display: flex;
+    }
+  	.fotografia{
+  		padding: 5px;
+  	}
+  	.text-col2{
+  		padding: 1px;
+  		font: Montserrat;
+  		font-size: 9px;
+  		text-align:center;
+  		color:#691C32;
+  	}
+  	.img-responsable{
+  		width: 100%;
+  	}
+  	.diseño-tabla{
+  		border:3px #BC955C solid;
+  		border
+  		width:100%;
+  		border-radius: 8px;
+  		border-spacing: 3px 3px;
+  		margin: 2px;
+  		padding: 2px;
+  	}
+    .tabla-1{
+      border: 1px #BC955C solid;
+      border-radius: 4px;
+      background: #DDC9A3;
+      padding: 3px;
+      font: Montserrat;
+      font-size: 10px;
+      font-weight: bold;
+      text-align:center;
+      color:#691C32;
+      height: 30px !important;
+    }
+  	table.head{
+  			border:3px #691C32 solid;
+  			width:285px;
+  			border-radius: 8px;
+  			margin: 2px;
+  			}
+
+  	table.head2{
+  			border:3px #691C32 solid;
+  			width:285px;
+  			column-count: 3;
+  			border-radius: 8px;
+  			margin: 2px;
+  			}
+
+  	table.div3{
+  	  text-align: center;
+  	}
+
+  	h2 {
+   	 text-align: center;
+  	}
+
+  	table.generales{
+  				/*table-layout: fixed;*/
+  				border:3px #BC955C solid;
+  				border
+  				width:570px;
+  				border-radius: 8px;
+  				border-spacing: 3px 3px;
+  				margin: 2px;
+  				margin-top: 6px;
+  				padding: 2px;
+  				/*width:850px;*/
+  				}
+  					td.col0 {
+  					border: 1px #691C32 solid;
+  					border-radius: 3px;
+  					background: #691C32;
+  					padding: 0px;
+  					}
+
+  					td.col1 {
+  					border: 1px #BC955C solid;
+  					border-radius: 4px;
+  					background: #DDC9A3;
+  					padding: 3px;
+  					font: Montserrat;
+  					font-size: 10px;
+  					font-weight: bold;
+  					text-align:center;
+  					color:#691C32;
+  					width:10px;
+  					height: 30px !important;
+  					}
+
+  					td.col2 {
+  					border: 1px #BC955C solid;
+  					border-radius: 4px;
+  					background: #FFFFFF;
+  					padding: 3px;
+  					font: Montserrat;
+  					font-size: 9px;
+  					text-align:center;
+  					color:#691C32;
+  					width:50px;
+  					height: 30px !important;
+  					}
+
+
+  	table.columnas{
+  				table-layout: fixed;
+  				border:3px #BC955C solid;
+  				border
+  				width:570px;
+  				border-radius: 8px;
+  				border-spacing: 3px 3px;
+  				margin: 2px;
+  				margin-top: 6px;
+  				padding: 2px;
+  				width:324px; -- ancho tabla 1
+  				}
+
+  						td.col0 {
+  						border: 1px #691C32 solid;
+  						border-radius: 3px;
+  						background: #691C32;
+  						padding: 0px;
+  						}
+
+  						td.col1 {
+  						border: 1px #BC955C solid;
+  						border-radius: 4px;
+  						background: #DDC9A3;
+  						padding: 3px;
+  						font: Montserrat;
+  						font-size: 10px;
+  						font-weight: bold;
+  						text-align:center;
+  						color:#691C32;
+  						width:35px;
+  						height: 30px !important;
+  						}
+
+  						td.col2 {
+  						border: 1px #BC955C solid;
+  						border-radius: 4px;
+  						background: #FFFFFF;
+  						padding: 3px;
+  						font: Montserrat;
+  						font-size: 9px;
+  						text-align:center;
+  						color:#691C32;
+  						width:45px; -- tamagno de celdas
+  						height: 35px !important; -- tamagno de celdas
+  						}
+
+  	.row, .row-alt{
+
+  		  	border-radius: 8px;
+  		   	margin-top: 6px;
+  		   	width:850px;
+  			}
+  			.row {
+  		 	background: #fff;
+  		  	padding: 50px 0 24px 0;
+  			}
+  			.row-alt {
+  		  	background: linear-gradient(to right, #FFFFFF, #DDC9A3);
+  		   	padding: 7px 0;
+   			}
+
+   	.logo{
+  		     float:left;
+  		     width: 150px;
+  		     height:75px;
+  		     display:block;
+  		     margin-left: 50px;
+  			}
+
+  		h1 {
+  			color: #691C32;
+  			font: Montserrat;
+  			font-size: 16px;
+  			font-weight: bold;
+  			margin-top: 5px;
+  			margin-bottom: 0px;
+  			}
+
+   	 	div {
+  			font: Montserrat;
+  			font-size:12px;
+  			color:#691C32;
+  			font-weight: bold;
+  			margin-top: 0px;
+  			margin-bottom: 0px;
+  			text-align:center;
+  			}
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <table class="head">
+        <td class="col0"><img src="banner.png" width=840px height=60 hspace=0 vspace=0></td>
+    </table>
+    <section class="row-alt">
+      <div class="container ">
+        <div class="col-30">
+          <img class="logo" src="tren.png">
+        </div>
+        <div class="col-70">
+          <h1 class="titulos">U LU'UMIL MAAYA WÍINIKO'OB</h1>
+          <p>
+            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya, Estados de Chiapas, Tabasco, Yucatán, Campeche y Quintana Roo
+          </p>
+        </div>
+      </div>
+    </section>
+  </header>
+  <!-- -->
+  <div class="main flex" style="width:850px">
+    <div class="diseño-tabla col-50">
+      <p>Registro fotográfico de inicio</p>
+      <div class="flex wrap center">
+        <div class="fotografia">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" style="width:186px; height:139px" >
+        </div>
+        <div class="fotografia">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" style="width:186px; height:139px">
+        </div>
+      </div>
+    </div>
+    <div class="diseño-tabla col-50">
+      <p>Registro fotográfico de Intervención</p>
+      <div class="flex wrap">
+        <div class="fotografia ">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" style="width:186px; height:139px">
+        </div>
+        <div class="fotografia ">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" style="width:186px; height:139px">
+        </div>
+        <div class="fotografia ">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" style="width:186px; height:139px">
+        </div>
+        <div class="fotografia ">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" style="width:186px; height:139px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+
+  <div>
+    <div class="diseño-tabla" style="width:837px">
+      <p>Registro fotográfico de fin</p>
+      <div class="flex wrap center">
+        <div class="fotografia ">
+          <img src=[%case when "Costado general después de excavar" is not null then
+          'file:///C:/TM_Excavacion/imagenes/' ||  "Ortomosaico"   || '.jpg' end%]
+          onerror="this.src='file:///D:/TM/images.png' ;"  alt="" style="width:186px; height:139px">
+        </div>
+        <div class="fotografia ">
+          <img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" style="width:186px; height:139px">
+        </div>
+      </div>
+    </div>
+    <div class="diseño-tabla" style="width:837px">
+      <p>Procesos realizados</p>
+      <p class="subtitulo">Seleccionar la casilla y describir brevemente el proceso y materiales.</p>
+      <div class="col-100">
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Limpieza superficial</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Mircro excavación</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Limpieza físico química</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Desalización</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Elminación mecánica de sales</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Union de fragmentos</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Eliminación de intervenciones anteriores</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Reposición faltante</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Resane</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col-40 flex space-between">
+              <p class="text-col2">Reintegración</p>
+              <p class="col-50 rectangulo"></p>
+            </div>
+            <div class="col-50 flex flex-start">
+              <p class="subtitulo">Proceso: [%""%]</p>
+            </div>
+        </div>
+  		</div>
+      <p>Observaciones:</p>
+      <p class="subtitulo">[%""%]</p>
+  	</div>
+  </div>
+</body>
+</html>
