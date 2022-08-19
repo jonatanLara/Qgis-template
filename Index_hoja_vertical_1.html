@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style2.css">
   <title></title>
 </head>
-<body>
+<body onload="imagenes()">
 		<header>
 			<table class="head">
 					<td class="col0"><img src="banner.png" width=840px height=60 hspace=0 vspace=0></td>
@@ -157,20 +157,24 @@
         <h5 class="flex">Estados de conservación  <p class="subtitulo">Registro fotográfico principales deterioros</p></h5>
       </div>
 		</section>
+    <!-- IMAGENES-->
 		<div class="diseño-tabla" style="width:836px">
 				<div style="display:flex">
-					<div class="fotografia">
-						<img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" class="img-responsable">
-					</div>
-					<div class="fotografia">
-						<img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" class="img-responsable">
-					</div>
-					<div class="fotografia">
-						<img src="fotografia_muestra/T3_13081_LR_RVT.jpg" alt="" class="img-responsable">
-					</div>
-				</div>
-				<h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%]</p></h5>
-		</div>
+          <div class="fotografia">
+            <div class="fotografia">
+              <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable">
+            </div>
+          </div>
+          <div class="fotografia">
+            <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" >
+          </div>
+          <div class="fotografia">
+        <!--    <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 3"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" > -->
+          <p id="content" class="col-30 img-responsable" ></p>
+          </div>
+        </div>
+				<h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] [%  array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3" , "FOTO 6"), @element is not null)) %]</p></h5>
+    </div>
 		<!-- -->
 		<section class="container">
       <div class="container col-70" >
@@ -725,7 +729,20 @@
         </div>
       </div>
 		</div>
+    <!--<p style="font-size:7px" align=right class="subtitulo">Cédula de excavación con información disponible al [%format_date(now(),'dd-MM-yyyy HH:mm:ss')%]<p>-->
+    <script type="text/javascript">
+      let str = 'Leon,Caballo,Iguana,Lobo';
+      let arr = str.split(',');
+      console.log(arr);
+      function imagenes(){
+        var path= "fotografia_muestra/T3_13081_LR_RVT.jpg"; //-->Editar la ruta
+        var img=document.createElement('img');
+        img.setAttribute("src",path);
+        img.setAttribute("width","35");
+        img.setAttribute("height","24");
+        document.getElementById("content").appendChild(img);
+      }
 
+    </script>
 </body>
-
 </html>
