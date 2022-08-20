@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style2.css">
   <title></title>
 </head>
-<body onload="imagenes()">
+<body onload="makeImage();">
 		<header>
 			<table class="head">
 					<td class="col0"><img src="banner.png" width=840px height=60 hspace=0 vspace=0></td>
@@ -154,12 +154,12 @@
 
 		<section class="container">
 			<div class="container col-90">
-        <h5 class="flex">Estados de conservación  <p class="subtitulo">Registro fotográfico principales deterioros</p></h5>
+        <h5 class="flex">Estados de conservación  <p class="subtitulo" >Registro fotográfico principales deterioros</p></h5>
       </div>
 		</section>
     <!-- IMAGENES-->
 		<div class="diseño-tabla" style="width:836px">
-				<div style="display:flex">
+			<!--	<div style="display:flex">
           <div class="fotografia">
             <div class="fotografia">
               <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable">
@@ -168,12 +168,19 @@
           <div class="fotografia">
             <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" >
           </div>
-          <div class="fotografia">
+          <div class="fotografia">-->
         <!--    <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 3"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" > -->
           <p id="content" class="col-30 img-responsable" ></p>
+
+          <input type="hidden" id="valor" name="valor" value="Leon,Caballo,Iguana">
+          <div class="contents" id="content"></div>
+          <button onclick="nextImage()">Next Image</button>
+
+
           </div>
+
         </div>
-				<h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] [%  array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3" , "FOTO 6"), @element is not null)) %]</p></h5>
+				<h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] </p> <p >[%  array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3" , "FOTO 6"), @element is not null)) %]</p></h5>
     </div>
 		<!-- -->
 		<section class="container">
@@ -184,7 +191,6 @@
         <p>Decoración</p><br>
       </div>
 	  </section>
-
 		<div class="tabla" style="display:flex">
 			<table class="generales col-70" style="width:592px">
 				<tr>
@@ -731,16 +737,40 @@
 		</div>
     <!--<p style="font-size:7px" align=right class="subtitulo">Cédula de excavación con información disponible al [%format_date(now(),'dd-MM-yyyy HH:mm:ss')%]<p>-->
     <script type="text/javascript">
-      let str = 'Leon,Caballo,Iguana,Lobo';
-      let arr = str.split(',');
-      console.log(arr);
+      //var cadena = document.getElementById("valor").value;
+      //console.log(cadena);
+
+
       function imagenes(){
+
         var path= "fotografia_muestra/T3_13081_LR_RVT.jpg"; //-->Editar la ruta
         var img=document.createElement('img');
         img.setAttribute("src",path);
         img.setAttribute("width","35");
         img.setAttribute("height","24");
         document.getElementById("content").appendChild(img);
+      }
+      /// creacion de imagenes
+      let str = document.getElementById("valor").value;
+      let images = str.split(',');
+      console.log(images);
+
+      var index = 0;
+
+      function makeImage() {
+         var img = document.createElement('img')
+         img.src = images[index]+".jpg";
+         document.getElementById('content').appendChild(img);
+         for (var i = 0; i < images.length; i++) {
+           console.log(images[i]);
+         }
+      }
+
+      function nextImage(){
+         var img = document.getElementById('content').getElementsByTagName('img')[0]
+         index++;
+         index = index % images.length;
+         img.src = images[index]+".jpg";
       }
 
     </script>
