@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style2.css">
   <title></title>
 </head>
-<body onload="makeImage();">
+<body onload="imagenes();">
 		<header>
 			<table class="head">
 					<td class="col0"><img src="banner.png" width=840px height=60 hspace=0 vspace=0></td>
@@ -158,29 +158,12 @@
       </div>
 		</section>
     <!-- IMAGENES-->
-		<div class="diseño-tabla" style="width:836px">
-			<!--	<div style="display:flex">
-          <div class="fotografia">
-            <div class="fotografia">
-              <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable">
-            </div>
-          </div>
-          <div class="fotografia">
-            <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" >
-          </div>
-          <div class="fotografia">-->
-        <!--    <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/[%"FOTO 3"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable" > -->
-          <p id="content" class="col-30 img-responsable" ></p>
-
-          <input type="hidden" id="valor" name="valor" value="Leon,Caballo,Iguana">
-          <div class="contents" id="content"></div>
-          <button onclick="nextImage()">Next Image</button>
-
-
-          </div>
-
+		<div class="diseño-tabla" style="width:836px" >
+				<div style="display:flex" id="cont-princ">
+         <input type="hidden" id="conservacion" value=[% array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3"), @element is not null)) %]>
+        <!--   <input type="hidden" id="valor" name="valor" value="Leon,Gato,Perro">-->
         </div>
-				<h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] </p> <p >[%  array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3" , "FOTO 6"), @element is not null)) %]</p></h5>
+        <h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] </p></h5>
     </div>
 		<!-- -->
 		<section class="container">
@@ -742,36 +725,40 @@
 
 
       function imagenes(){
+        /// creacion de imagenes
+        let str = document.getElementById("conservacion").value;
+        let images = str.split(',');
+        let principal = document.getElementById('cont-princ')
+        let valor = 3; // let valor = images.length;
+        for(i=0;i<images.length;i++){
+          if(valor>=2 & valor<=4){
+            let creaimg = document.createElement('img');
+            let crearDiv = document.createElement('div');
+            creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/"+images[i]+".jpg");
+            creaimg.setAttribute('width','264');
+            creaimg.setAttribute('height','200');
+            crearDiv.setAttribute('class','fotografia');
+            principal.appendChild(crearDiv);
+            crearDiv.appendChild(creaimg);
 
-        var path= "fotografia_muestra/T3_13081_LR_RVT.jpg"; //-->Editar la ruta
-        var img=document.createElement('img');
-        img.setAttribute("src",path);
-        img.setAttribute("width","35");
-        img.setAttribute("height","24");
-        document.getElementById("content").appendChild(img);
+          } else if(valor>=4 & valor<=6){
+            let creaimg = document.createElement('img');
+            creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/"+images[i]+".jpg");
+            creaimg.setAttribute('width','183');
+            creaimg.setAttribute('height','139');
+            principal.appendChild(creaimg);
+
+          }else if(valor=>8){
+
+            let creaimg = document.createElement('img');
+            creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Deterioros/"+images[i]+".jpg");
+            creaimg.setAttribute('width','100');
+            creaimg.setAttribute('height','60');
+            principal.appendChild(creaimg);
+          }
+        }
       }
-      /// creacion de imagenes
-      let str = document.getElementById("valor").value;
-      let images = str.split(',');
-      console.log(images);
 
-      var index = 0;
-
-      function makeImage() {
-         var img = document.createElement('img')
-         img.src = images[index]+".jpg";
-         document.getElementById('content').appendChild(img);
-         for (var i = 0; i < images.length; i++) {
-           console.log(images[i]);
-         }
-      }
-
-      function nextImage(){
-         var img = document.getElementById('content').getElementsByTagName('img')[0]
-         index++;
-         index = index % images.length;
-         img.src = images[index]+".jpg";
-      }
 
     </script>
 </body>

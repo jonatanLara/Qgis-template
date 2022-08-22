@@ -287,7 +287,7 @@
   </style>
 
 </head>
-<body>
+<body onload="Carga();">
   <header>
     <table class="head">
         <td class="col0"><img src="banner.png" width=840px height=60 hspace=0 vspace=0></td>
@@ -310,36 +310,16 @@
   <div class="main flex" style="width:850px">
     <div class="diseño-tabla col-50">
       <p>Registro fotográfico de inicio</p>
-      <div class="flex wrap center">
-        <div class="fotografia">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/[%"FOTO 1_1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
-        </div>
-        <div class="fotografia">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/[%"FOTO 2_1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
-        </div>
-        <div class="fotografia">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/[%"FOTO 3_1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
-        </div>
-        <div class="fotografia">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/[%"FOTO 4"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
-        </div>
+      <input type="hidden" id="inicioFoto" value=[% array_to_string( array_filter( array("FOTO 1_1" , "FOTO 2_1"  , "FOTO 3_1" , "FOTO 4"), @element is not null)) %]>
+      <div class="flex wrap center" id="cont-princ-2">
+
       </div>
     </div>
     <div class="diseño-tabla col-50">
       <p>Registro fotográfico de Intervención</p>
-      <div class="flex wrap">
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/[%"FOTO 1_2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable"style="width:186px; height:139px">
-        </div>
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/[%"FOTO 2_2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable"style="width:186px; height:139px">
-        </div>
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/[%"FOTO 3_2"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable"style="width:186px; height:139px">
-        </div>
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/[%"FOTO 4_1"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" class="col-30 img-responsable"style="width:186px; height:139px">
-        </div>
+      <input type="hidden" id="inicioIntervencion" value=[% array_to_string( array_filter( array("FOTO 1_2" , "FOTO 2_2"  , "FOTO 3_2" , "FOTO 4_1", "FOTO 5", "FOTO 6", "FOTO 7", "FOTO 8", "FOTO 9"), @element is not null)) %]>
+      <div class="flex wrap" id="cont-princ-3">
+
       </div>
     </div>
   </div>
@@ -348,14 +328,10 @@
   <div>
     <div class="diseño-tabla" style="width:837px">
       <p>Registro fotográfico de fin</p>
-      <div class="flex wrap center">
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/[%"FOTO 1_3"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
+      <input type="hidden" id="inicioFin" value=[% array_to_string( array_filter( array("FOTO 1_3" , "FOTO 2_3"  , "FOTO 3_3" , "FOTO 4_2"), @element is not null)) %]>
+      <div class="flex wrap center " id="cont-princ-4">
 
-        </div>
-        <div class="fotografia ">
-          <img src="file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/[%"FOTO 1_3"%].jpg"  onerror="this.src='file:///D:/TM/images.png';" style="width:186px; height:139px">
-        </div>
+
       </div>
     </div>
     <div class="diseño-tabla" style="width:837px">
@@ -517,9 +493,123 @@
             </div>
         </div>
   		</div>
+  	</div>
+    <div class="diseño-tabla" style="width:837px">
       <p>Observaciones:</p>
       <p class="subtitulo">[%"Observaciones_1"%]</p>
-  	</div>
+    </div>
   </div>
+  <script type="text/javascript">
+    //var cadena = document.getElementById("valor").value;
+    //console.log(cadena);
+    function Carga(){
+      imagenesInicio();
+      imagenesIntervencion();
+      imagenesFin();
+    }
+    function imagenesInicio(){
+      /// creacion de imagenes
+      let str = document.getElementById("inicioFoto").value;
+      let images = str.split(',');
+      let principal = document.getElementById('cont-princ-2');
+      let valor = 4; // let valor = images.length;
+      for(i=0;i<images.length;i++){
+        if(valor>=2 & valor<=4){
+          let creaimg = document.createElement('img');
+          let crearDiv = document.createElement('div');
+          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','186');
+          creaimg.setAttribute('height','136');
+          crearDiv.setAttribute('class','fotografia');
+          principal.appendChild(crearDiv);
+          crearDiv.appendChild(creaimg);
+
+        } else if(valor>=4 & valor<=6){
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','183');
+          creaimg.setAttribute('height','139');
+          principal.appendChild(creaimg);
+
+        }else if(valor=>8){
+
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','100');
+          creaimg.setAttribute('height','60');
+          principal.appendChild(creaimg);
+        }
+      }
+    }
+    function imagenesIntervencion(){
+      /// creacion de imagenes
+      let str = document.getElementById("inicioIntervencion").value;
+      let images = str.split(',');
+      let principal = document.getElementById('cont-princ-3');
+      let valor = images.length;
+      for(i=0;i<images.length;i++){
+        if(valor>=2 & valor<=4){
+          let creaimg = document.createElement('img');
+          let crearDiv = document.createElement('div');
+          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/"+images[i]+".jpg");
+          creaimg.setAttribute('width','186');
+          creaimg.setAttribute('height','136');
+          crearDiv.setAttribute('class','fotografia');
+          principal.appendChild(crearDiv);
+          crearDiv.appendChild(creaimg);
+
+        } else if(valor>=4 & valor<=6){
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/"+images[i]+".jpg");
+          creaimg.setAttribute('width','183');
+          creaimg.setAttribute('height','139');
+          principal.appendChild(creaimg);
+
+        }else if(valor=>8){
+
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/"+images[i]+".jpg");
+          creaimg.setAttribute('width','130');
+          creaimg.setAttribute('style','padding:1px');
+          creaimg.setAttribute('height','95');
+          principal.appendChild(creaimg);
+        }
+      }
+    }
+    function imagenesFin(){
+      /// creacion de imagenes
+      let str = document.getElementById("inicioFin").value;
+      let images = str.split(',');
+      let principal = document.getElementById('cont-princ-4');
+      let valor = images.length;
+      for(i=0;i<images.length;i++){
+        if(valor>=2 & valor<=4){
+          let creaimg = document.createElement('img');
+          let crearDiv = document.createElement('div');
+          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','183');
+          creaimg.setAttribute('height','139');
+          crearDiv.setAttribute('class','fotografia');
+          principal.appendChild(crearDiv);
+          crearDiv.appendChild(creaimg);
+
+        } else if(valor>=4 & valor<=6){
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','183');
+          creaimg.setAttribute('height','139');
+          principal.appendChild(creaimg);
+
+        }else if(valor=>8){
+
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','100');
+          creaimg.setAttribute('height','60');
+          principal.appendChild(creaimg);
+        }
+      }
+    }
+  </script>
 </body>
 </html>
