@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="principal" id="cont-princ"></div>
+  <script type="text/javascript">
+    let str ="Leon,Perro,Gato"
+    let animal = str.split(',');
+    let principal = document.getElementById('cont-princ')
+    let valor = 2; // let valor = animal.length;
+    for(i=0;i<animal.length;i++){
+      if(valor>=2 & valor<=4){
+        let creaimg = document.createElement('img');
+        creaimg.setAttribute('src', animal[i]+".jpg");
+        creaimg.setAttribute('width','400');
+        creaimg.setAttribute('height','220');
+        principal.appendChild(creaimg);
+      } else if(valor>=4 & valor<=6){
+        let creaimg = document.createElement('img');
+        creaimg.setAttribute('src', animal[i]+".jpg");
+        creaimg.setAttribute('width','200');
+        creaimg.setAttribute('height','110');
+        principal.appendChild(creaimg);
+      }else if(valor=>8){
+        let creaimg = document.createElement('img');
+        creaimg.setAttribute('src', animal[i]+".jpg");
+        creaimg.setAttribute('width','100');
+        creaimg.setAttribute('height','60');
+        principal.appendChild(creaimg);
+      }
+    }
+  </script>
+</body>
+</html>
