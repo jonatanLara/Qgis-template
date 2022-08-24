@@ -3,288 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
-  <style type="text/css">
-
-  	body,div,table,thead,tbody,tfoot,tr,th,td,p,h5{ font-family:"Montserrat"; font-size:small ; margin: 2px}
-  	body{
-  		box-sizing: border-box;
-  		max-width: 840px;
-  	}
-  	.subtitulo{
-  		font: 'Montserrat';
-  		font-size: 10px;
-  		font-weight:normal ;
-  	}
-  	.color{
-  		color:#691C32;
-  	}
-    /*
-  	.grids{
-  		display: grid;
-  		grid-template-columns: repeat(2, 1fr);
-  	}*/
-  	.col-20{
-      width: 20%;
-      height: auto;
-    }
-  	.col-25{
-  		width: 25%;
-      height: auto;
-  	}
-    .col-30{
-      width: 30%;
-      height: auto;
-    }
-    .col-40{
-      width: 40%;
-      height: auto;
-    }
-    .col-50{
-      width: 50%;
-      height: auto;
-    }
-    .col-60{
-      width: 60%;
-      height: auto;
-    }
-    .col-70{
-      width: 70%;
-      height: auto;
-    }
-  	.col-80{
-      width: 70%;
-      height: auto;
-    }
-  	.col-90{
-  		width: 90%;
-      height: auto;
-  	}
-  	.col-100{
-  		width: 90%;
-      height: auto;
-  	}
-  	.rectangulo{
-  		border:3px #BC955C solid;
-  		width: 20px;
-  		height: 8px;
-  	}
-  	.flex{
-  		display: flex;
-  	}
-  	.space-between{
-  		justify-content: space-between;
-  	}
-  	.flex-start{
-  		justify-content: flex-start;
-  	}
-    .center{
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
-    .wrap{
-  		flex-wrap: wrap;
-  	}
-  	.nowrap{
-  		flex-wrap: nowrap;
-  	}
-    .container{
-      display: flex;
-    }
-  	.fotografia{
-  		padding: 5px;
-  	}
-  	.text-col2{
-  		padding: 1px;
-  		font: Montserrat;
-  		font-size: 9px;
-  		text-align:center;
-  		color:#691C32;
-  	}
-  	.img-responsable{
-  		width: 100%;
-  	}
-  	.diseño-tabla{
-  		border:3px #BC955C solid;
-  		border
-  		width:100%;
-  		border-radius: 8px;
-  		border-spacing: 3px 3px;
-  		margin: 2px;
-  		padding: 2px;
-  	}
-    .tabla-1{
-      border: 1px #BC955C solid;
-      border-radius: 4px;
-      background: #DDC9A3;
-      padding: 3px;
-      font: Montserrat;
-      font-size: 10px;
-      font-weight: bold;
-      text-align:center;
-      color:#691C32;
-      height: 30px !important;
-    }
-  	table.head{
-  			border:3px #691C32 solid;
-  			width:285px;
-  			border-radius: 8px;
-  			margin: 2px;
-  			}
-
-  	table.head2{
-  			border:3px #691C32 solid;
-  			width:285px;
-  			column-count: 3;
-  			border-radius: 8px;
-  			margin: 2px;
-  			}
-
-  	table.div3{
-  	  text-align: center;
-  	}
-
-  	h2 {
-   	 text-align: center;
-  	}
-
-  	table.generales{
-  				/*table-layout: fixed;*/
-  				border:3px #BC955C solid;
-  				border
-  				width:570px;
-  				border-radius: 8px;
-  				border-spacing: 3px 3px;
-  				margin: 2px;
-  				margin-top: 6px;
-  				padding: 2px;
-  				/*width:850px;*/
-  				}
-  					td.col0 {
-  					border: 1px #691C32 solid;
-  					border-radius: 3px;
-  					background: #691C32;
-  					padding: 0px;
-  					}
-
-  					td.col1 {
-  					border: 1px #BC955C solid;
-  					border-radius: 4px;
-  					background: #DDC9A3;
-  					padding: 3px;
-  					font: Montserrat;
-  					font-size: 10px;
-  					font-weight: bold;
-  					text-align:center;
-  					color:#691C32;
-  					width:10px;
-  					height: 30px !important;
-  					}
-
-  					td.col2 {
-  					border: 1px #BC955C solid;
-  					border-radius: 4px;
-  					background: #FFFFFF;
-  					padding: 3px;
-  					font: Montserrat;
-  					font-size: 9px;
-  					text-align:center;
-  					color:#691C32;
-  					width:50px;
-  					height: 30px !important;
-  					}
-
-
-  	table.columnas{
-  				table-layout: fixed;
-  				border:3px #BC955C solid;
-  				border
-  				width:570px;
-  				border-radius: 8px;
-  				border-spacing: 3px 3px;
-  				margin: 2px;
-  				margin-top: 6px;
-  				padding: 2px;
-  				width:324px; -- ancho tabla 1
-  				}
-
-  						td.col0 {
-  						border: 1px #691C32 solid;
-  						border-radius: 3px;
-  						background: #691C32;
-  						padding: 0px;
-  						}
-
-  						td.col1 {
-  						border: 1px #BC955C solid;
-  						border-radius: 4px;
-  						background: #DDC9A3;
-  						padding: 3px;
-  						font: Montserrat;
-  						font-size: 10px;
-  						font-weight: bold;
-  						text-align:center;
-  						color:#691C32;
-  						width:35px;
-  						height: 30px !important;
-  						}
-
-  						td.col2 {
-  						border: 1px #BC955C solid;
-  						border-radius: 4px;
-  						background: #FFFFFF;
-  						padding: 3px;
-  						font: Montserrat;
-  						font-size: 9px;
-  						text-align:center;
-  						color:#691C32;
-  						width:45px; -- tamagno de celdas
-  						height: 35px !important; -- tamagno de celdas
-  						}
-
-  	.row, .row-alt{
-
-  		  	border-radius: 8px;
-  		   	margin-top: 6px;
-  		   	width:850px;
-  			}
-  			.row {
-  		 	background: #fff;
-  		  	padding: 50px 0 24px 0;
-  			}
-  			.row-alt {
-  		  	background: linear-gradient(to right, #FFFFFF, #DDC9A3);
-  		   	padding: 7px 0;
-   			}
-
-   	.logo{
-  		     float:left;
-  		     width: 150px;
-  		     height:75px;
-  		     display:block;
-  		     margin-left: 50px;
-  			}
-
-  		h1 {
-  			color: #691C32;
-  			font: Montserrat;
-  			font-size: 16px;
-  			font-weight: bold;
-  			margin-top: 5px;
-  			margin-bottom: 0px;
-  			}
-
-   	 	div {
-  			font: Montserrat;
-  			font-size:12px;
-  			color:#691C32;
-  			font-weight: bold;
-  			margin-top: 0px;
-  			margin-bottom: 0px;
-  			text-align:center;
-  			}
-
-  </style>
+  <link rel="stylesheet" href="style3.css">
 
 </head>
 <body onload="Carga();">
@@ -299,23 +18,19 @@
         </div>
         <div class="col-70">
           <h1 class="titulos">U LU'UMIL MAAYA WÍINIKO'OB</h1>
-          <p>
-            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya, Estados de Chiapas, Tabasco, Yucatán, Campeche y Quintana Roo
+          <p>Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya.
+          Responsable académico: Dr. Manuel E. Pérez Rivas. Diseño de contenido: Félix Albarado Camacho Zamora
           </p>
         </div>
       </div>
     </section>
   </header>
   <!-- -->
-  <div class="main flex" style="width:850px">
-    <div class="diseño-tabla col-50">
-      <p>Registro fotográfico de inicio</p>
-      <input type="hidden" id="inicioFoto" value=[% array_to_string( array_filter( array("FOTO 1_1" , "FOTO 2_1"  , "FOTO 3_1" , "FOTO 4"), @element is not null)) %]>
-      <div class="flex wrap center" id="cont-princ-2">
 
-      </div>
-    </div>
-    <div class="diseño-tabla col-50">
+  <!-- -->
+  <div class="main flex" style="width:850px">
+
+    <div class="diseño-tabla ">
       <p>Registro fotográfico de Intervención</p>
       <input type="hidden" id="inicioIntervencion" value=[% array_to_string( array_filter( array("FOTO 1_2" , "FOTO 2_2"  , "FOTO 3_2" , "FOTO 4_1", "FOTO 5", "FOTO 6", "FOTO 7", "FOTO 8", "FOTO 9"), @element is not null)) %]>
       <div class="flex wrap" id="cont-princ-3">
@@ -323,223 +38,233 @@
       </div>
     </div>
   </div>
-  <!-- -->
+  <div class="diseño-tabla" style="width:837px">
+    <p>Procesos realizados</p>
+    <div class="col-100">
+      <div class="flex">
+          <div class="flex space-between">
+                <p class="col-10 rectangulo"
+                [%case
+                  when "Limpieza superficial" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Limpieza superficial </p>
 
-  <div>
-    <div class="diseño-tabla" style="width:837px">
-      <p>Registro fotográfico de fin</p>
-      <input type="hidden" id="inicioFin" value=[% array_to_string( array_filter( array("FOTO 1_3" , "FOTO 2_3"  , "FOTO 3_3" , "FOTO 4_2"), @element is not null)) %]>
-      <div class="flex wrap center " id="cont-princ-4">
+          </div>
 
-
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Limpieza superficial" is not null
+                                  THEN concat(': ',"Limpieza superficial" )
+                                  WHEN "Limpieza superficial" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
       </div>
-    </div>
-    <div class="diseño-tabla" style="width:837px">
-      <p>Procesos realizados</p>
-      <p class="subtitulo">Seleccionar la casilla y describir brevemente el proceso y materiales.</p>
-      <div class="col-100">
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Limpieza superficial</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Limpieza superficial" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Limpieza superficial"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Micro excavación</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Microexcavación" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Microexcavación"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Limpieza físico química</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Limpieza físico química" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Limpieza físico química"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Desalización</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Desalinización" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Desalinización"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Consolidación</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Consolidación" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Consolidación"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Elminación mecánica de sales</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Eliminación mecánica de sales" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Eliminación mecánica de sales"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Unión de fragmentos</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Unión de fragmentos" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Unión de fragmentos"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Eliminación de intervenciones anteriores</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Eliminación de intervenciones anteriores" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Eliminación de intervenciones anteriores"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Reposición de faltante</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Reposición de faltantes" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Reposición de faltantes"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Resane</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Resane" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Resane"%]</p>
-            </div>
-        </div>
-        <div class="flex">
-            <div class="col-40 flex space-between">
-              <p class="text-col2">Reintegración</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Reintegración cromática" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]></p>
-            </div>
-            <div class="col-50 flex flex-start">
-              <p class="subtitulo">Proceso: [%"Reintegración cromática"%]</p>
-            </div>
-        </div>
-  		</div>
-  	</div>
-    <div class="diseño-tabla" style="width:837px">
-      <p>Observaciones:</p>
-      <p class="subtitulo">[%"Observaciones_1"%]</p>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Microexcavación" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Micro excavación</p>
+          </div>
+
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">: [%CASE
+                                  WHEN "Microexcavación" is not null
+                                  THEN concat(': ',"Microexcavación" )
+                                  WHEN "Microexcavación" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Limpieza físico química" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+            <p class="text-col2">Limpieza físico química</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">: [%CASE
+                                  WHEN "Limpieza físico química" is not null
+                                  THEN concat(': ',"Limpieza físico química" )
+                                  WHEN "Limpieza físico química" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Desalinización" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Desalinización</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Desalinización" is not null
+                                  THEN concat(': ',"Desalinización" )
+                                  WHEN "Desalinización" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Consolidación" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Consolidación</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN  "Consolidación"  is not null
+                                  THEN concat(': ', "Consolidación"  )
+                                  WHEN  "Consolidación"  is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Eliminación mecánica de sales" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Elminación mecánica de sales</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Eliminación mecánica de sales" is not null
+                                  THEN concat(': ',"Eliminación mecánica de sales" )
+                                  WHEN "Eliminación mecánica de sales" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Unión de fragmentos" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Unión de fragmentos</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Unión de fragmentos" is not null
+                                  THEN concat(': ',"Unión de fragmentos" )
+                                  WHEN "Unión de fragmentos" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Eliminación de intervenciones anteriores" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Eliminación de intervenciones anteriores</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Eliminación de intervenciones anteriores" is not null
+                                  THEN concat(': ',"Eliminación de intervenciones anteriores" )
+                                  WHEN "Eliminación de intervenciones anteriores" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Reposición de faltantes" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Reposición de faltantes</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Reposición de faltantes" is not null
+                                  THEN concat(': ',"Reposición de faltantes" )
+                                  WHEN "Reposición de faltantes" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Resane" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Resane</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%CASE
+                                  WHEN "Resane" is not null
+                                  THEN concat(': ',"Resane" )
+                                  WHEN "Resane" is null
+                                  THEN ''
+                                  end  %]</p>
+          </div>
+      </div>
+      <div class="flex">
+          <div class="flex space-between">
+
+            <p class="col-50 rectangulo"
+                [%case
+                  when "Reintegración cromática" IS NOT NULL
+                  then 'style="background:#BC955C"'
+                  else 'style="background:none"'
+                end%]></p>
+                <p class="text-col2">Reintegración</p>
+          </div>
+          <div class="col-50 flex flex-start">
+            <p class="subtitulo">[%"Reintegración cromática"%]</p>
+          </div>
+      </div>
     </div>
   </div>
   <script type="text/javascript">
     //var cadena = document.getElementById("valor").value;
     //console.log(cadena);
     function Carga(){
-      imagenesInicio();
       imagenesIntervencion();
-      imagenesFin();
-    }
-    function imagenesInicio(){
-      /// creacion de imagenes
-      let str = document.getElementById("inicioFoto").value;
-      let images = str.split(',');
-      let principal = document.getElementById('cont-princ-2');
-      let valor = 4; // let valor = images.length;
-      for(i=0;i<images.length;i++){
-        if(valor>=2 & valor<=4){
-          let creaimg = document.createElement('img');
-          let crearDiv = document.createElement('div');
-          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
-          creaimg.setAttribute('width','186');
-          creaimg.setAttribute('height','136');
-          crearDiv.setAttribute('class','fotografia');
-          principal.appendChild(crearDiv);
-          crearDiv.appendChild(creaimg);
-
-        } else if(valor>=4 & valor<=6){
-          let creaimg = document.createElement('img');
-          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
-          creaimg.setAttribute('width','183');
-          creaimg.setAttribute('height','139');
-          principal.appendChild(creaimg);
-
-        }else if(valor=>8){
-
-          let creaimg = document.createElement('img');
-          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
-          creaimg.setAttribute('width','100');
-          creaimg.setAttribute('height','60');
-          principal.appendChild(creaimg);
-        }
-      }
     }
     function imagenesIntervencion(){
       /// creacion de imagenes
@@ -561,51 +286,20 @@
         } else if(valor>=4 & valor<=6){
           let creaimg = document.createElement('img');
           creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/"+images[i]+".jpg");
-          creaimg.setAttribute('width','183');
-          creaimg.setAttribute('height','139');
+          creaimg.setAttribute('width','270');
+          creaimg.setAttribute('style','padding:3px');
+          creaimg.setAttribute('height','220');
           principal.appendChild(creaimg);
 
         }else if(valor=>8){
 
           let creaimg = document.createElement('img');
           creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Procesos/"+images[i]+".jpg");
-          creaimg.setAttribute('width','130');
-          creaimg.setAttribute('style','padding:1px');
-          creaimg.setAttribute('height','95');
-          principal.appendChild(creaimg);
-        }
-      }
-    }
-    function imagenesFin(){
-      /// creacion de imagenes
-      let str = document.getElementById("inicioFin").value;
-      let images = str.split(',');
-      let principal = document.getElementById('cont-princ-4');
-      let valor = images.length;
-      for(i=0;i<images.length;i++){
-        if(valor>=2 & valor<=4){
-          let creaimg = document.createElement('img');
-          let crearDiv = document.createElement('div');
-          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
-          creaimg.setAttribute('width','183');
-          creaimg.setAttribute('height','139');
-          crearDiv.setAttribute('class','fotografia');
-          principal.appendChild(crearDiv);
-          crearDiv.appendChild(creaimg);
-
-        } else if(valor>=4 & valor<=6){
-          let creaimg = document.createElement('img');
-          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
-          creaimg.setAttribute('width','183');
-          creaimg.setAttribute('height','139');
-          principal.appendChild(creaimg);
-
-        }else if(valor=>8){
-
-          let creaimg = document.createElement('img');
-          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
-          creaimg.setAttribute('width','100');
-          creaimg.setAttribute('height','60');
+        //  creaimg.setAttribute('width','130');
+          creaimg.setAttribute('style','padding:3px');
+          //creaimg.setAttribute('height','95');
+          creaimg.setAttribute('width','270');
+          creaimg.setAttribute('height','220');
           principal.appendChild(creaimg);
         }
       }

@@ -17,19 +17,21 @@
 	        </div>
 	        <div class="col-70">
 	          <h1 class="titulos">U LU'UMIL MAAYA WÍINIKO'OB</h1>
-	          <p>
-	            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya, Estados de Chiapas, Tabasco, Yucatán, Campeche y Quintana Roo
-	          </p>
+	          <p class="">
+	            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya.
+              Responsable académico: Dr. Manuel E. Pérez Rivas. Diseño de contenido: Félix Albarado Camacho Zamora</p>
 	        </div>
 	      </div>
 			</section>
 		</header>
+    <h5 class="center color-rojo">Cédula de excavación</h5>
 		<section class="container">
+
       <div class="container col-90">
-        <p>Datos Generales</p>
+        <h5 >Datos Generales</h5>
       </div>
 			<div class="container col-20">
-        <p>Técnicas de construcción</p>
+        <h5>Técnicas de construcción</h5>
       </div>
 	  </section>
 
@@ -40,31 +42,33 @@
 					<td class="col2">[%"Tramo"%]</td>
 					<td class="col1">Estructura</td>
 					<td class="col2">[%"ID Monumento"%]</td>
-					<td class="col1">Número de ID</td>
-					<td class="col2">[%right("Clave de excavación",13)%]</td>
+          <td class="col1">Arqueólogo</td>
+					<td class="col2">[% substr(  "Clave de excavación" ,10,3)%]</td>
 				</tr>
 				<tr>
-					<td class="col1">Procedencia</td>
-					<td class="col2">[%""%]</td>
+
+          <td class="col1">Número de ID</td>
+					<td class="col2">[%right("Clave de excavación",7)%]</td>
 					<td class="col1">Descripción</td>
 					<td class="col2">[%"Descripción de pieza"%]</td>
 					<td class="col1">Estado de conservación</td>
 					<td class="col2">[%"Estado de conservación"%]</td>
 				</tr>
 				<tr>
-					<td class="col1">Dimenciones</td>
+					<td class="col1">Dimensiones</td>
 					<td class="col2"><strong>Alto: </strong>[%string_to_array("Dimensiones",'x')[0]%]<br>
 	                         <strong>Ancho: </strong>[%string_to_array("Dimensiones",'x')[1]%]<br>
 	                         <strong>Profundo: </strong>[%string_to_array("Dimensiones",'x')[2]%]</td>
 	        <td class="col1">Estado</td>
 	        <td class="col2">[%"Estado"%]</td>
 	        <td class="col1">Capa</td>
-	        <td class="col2">[%"Capa"%] N:[%string_to_array("Cuadro",',')[0]%] E:[%string_to_array("Cuadro",',')[1]%]</td>
+	        <td class="col2">[%"Capa"%] <strong>N: </strong>[%string_to_array("Cuadro",',')[0]%]<br>
+                                      <strong>E: </strong>[%string_to_array("Cuadro",',')[1]%]</td>
 				</tr>
 				<tr>
 					<td class="col1">Nombre de quien realiza el registro: </td>
 					<td class="col2">[%"Nombre quien registra"%]</td>
-					<td class="col1">Fecha de Registro:</td>
+					<td class="col1">Fecha de registro:</td>
 					<td class="col2">[%"Fecha de registro"%]</td>
 				</tr>
 
@@ -168,59 +172,140 @@
 		<!-- -->
 		<section class="container">
       <div class="container col-70" >
-        <p>Características formales</p><br>
+        <h5>Características formales</h5><br>
       </div>
 			<div class="container col-30">
-        <p>Decoración</p><br>
+        <h5>Decoración</h5><br>
       </div>
 	  </section>
 		<div class="tabla" style="display:flex">
 			<table class="generales col-70" style="width:592px">
 				<tr>
 					<td class="col1">Material</td>
-					<td class="col2">[%"Material"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Material" is not null
+                            THEN "Material"
+                            WHEN "Material" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Forma de la pieza</td>
-					<td class="col2">[%"Forma de la pieza"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Forma de la pieza" is not null
+                            THEN "Forma de la pieza"
+                            WHEN "Forma de la pieza" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Forma de la base</td>
-					<td class="col2">[%"Forma de la base"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Forma de la base" is not null
+                            THEN "Forma de la base"
+                            WHEN "Forma de la base" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 				<tr>
 					<td class="col1">Forma del borde</td>
-					<td class="col2">[%"Forma del borde"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Forma del borde" is not null
+                            THEN "Forma del borde"
+                            WHEN "Forma del borde" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Dureza del material</td>
-					<td class="col2">[%"Dureza del material"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Dureza del material" is not null
+                            THEN "Dureza del material"
+                            WHEN "Dureza del material" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Textura</td>
-					<td class="col2">[%"Textura"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Textura" is not null
+                            THEN "Textura"
+                            WHEN "Textura" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 				<tr>
 					<td class="col1">Elementos para asir</td>
-					<td class="col2">[%"Elementos para asir"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Elementos para asir" is not null
+                            THEN "Elementos para asir"
+                            WHEN "Elementos para asir" is null
+                            THEN 'No presenta'
+                            end %]</td>
 	        <td class="col1">Elemento para verter</td>
-	        <td class="col2">[%"Elementos para verter"%]</td>
+	        <td class="col2">[%CASE
+                            WHEN "Elementos para verter" is not null
+                            THEN "Elementos para verter"
+                            WHEN "Elementos para verter" is null
+                            THEN 'No presenta'
+                            end %]</td>
 	        <td class="col1">Elemento para obturar</td>
-	        <td class="col2">[%"Elementos para obturar"%]</td>
+	        <td class="col2">[%CASE
+                            WHEN "Elementos para obturar" is not null
+                            THEN "Elementos para obturar"
+                            WHEN "Elementos para obturar" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 				<tr>
 					<td class="col1">Forma de soportes: </td>
-					<td class="col2">[%"Forma de soporte"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Forma de soporte" is not null
+                            THEN "Forma de soporte"
+                            WHEN "Forma de soporte" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Forma del cuello:</td>
-					<td class="col2">[%"Forma del cuello"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Forma del cuello" is not null
+                            THEN "Forma del cuello"
+                            WHEN "Forma del cuello" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Silueta:</td>
-					<td class="col2">[%"Silueta"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Silueta" is not null
+                            THEN "Silueta"
+                            WHEN "Silueta" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 				<tr>
 					<td class="col1">Tipo de cocción </td>
-					<td class="col2">[%"Tipo cocción"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Tipo cocción" is not null
+                            THEN "Tipo cocción"
+                            WHEN "Tipo cocción" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Granulometría :</td>
-					<td class="col2">[%"Granulometría"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Granulometría" is not null
+                            THEN "Granulometría"
+                            WHEN "Granulometría" is null
+                            THEN 'No presenta'
+                            end %]</td>
 					<td class="col1">Reborde:</td>
-					<td class="col2">[%"Reborde"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Reborde" is not null
+                            THEN "Reborde"
+                            WHEN "Reborde" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 				<tr>
 					<td class="col1">Acabado de superficie </td>
-					<td class="col2">[%"Acabado de superficie"%]</td>
+					<td class="col2">[%CASE
+                            WHEN "Acabado de superficie" is not null
+                            THEN "Acabado de superficie"
+                            WHEN "Acabado de superficie" is null
+                            THEN 'No presenta'
+                            end %]</td>
 				</tr>
 			</table>
+
 			<div class=" diseño-tabla col-30 flex" style="width:245px">
 
 					<div class="col-50">
@@ -367,7 +452,11 @@
 		</div>
 
 		<!-- -->
-
+    <section class="container">
+      <div class="container col-100" >
+        <h5>Factores de degradación</h5><br>
+      </div>
+    </section>
 		<!-- -->
 		<div class=" diseño-tabla flex"style="width:836px">
 			<div class="col-20">
@@ -647,16 +736,6 @@
                     else 'style="background:none"'
                   end%]>
 					</div>
-
-          <div class="flex space-between">
-          			<p class="text-col2">Fragmentos sueltos</p>
-                <p class="col-50 rectangulo"
-                    [%case
-          						when "Fragmentos separados (número)" IS NOT NULL
-          						then 'style="background:#BC955C"'
-          						else 'style="background:none"'
-        					  end%]>
-          </div>
           <div class="flex space-between">
 							<p class="text-col2">Escurrimiento</p>
               <p class="col-50 rectangulo"
@@ -675,10 +754,6 @@
                     else 'style="background:none"'
                   end%]>
 					</div>
-				</div>
-			</div>
-      <div class="col-20">
-        <div class="">
           <div class="flex space-between">
               <p class="text-col2">Quemaduras</p>
               <p class="col-50 rectangulo"
@@ -688,6 +763,11 @@
                     else 'style="background:none"'
                   end%]>
           </div>
+				</div>
+			</div>
+      <div class="col-20">
+        <div class="">
+
           <div class="flex space-between">
               <p class="text-col2">Restos de pigmentos</p>
               <p class="col-50 rectangulo"
@@ -714,6 +794,10 @@
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
+          </div>
+          <div class="flex space-between">
+          			<p class="text-col2">Fragmentos sueltos  </p>
+                <p class="text-col2">[%"Fragmentos separados (número)"%]</p>
           </div>
         </div>
       </div>

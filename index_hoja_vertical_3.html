@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body onload="Carga();">
+  <div>
+
+    <div class="main flex" style="width:850px">
+      <div class="diseño-tabla"style="width:850px">
+        <p>Registro fotográfico de inicio</p>
+        <input type="hidden" id="inicioFoto" value=[% array_to_string( array_filter( array("FOTO 1_1" , "FOTO 2_1"  , "FOTO 3_1" , "FOTO 4"), @element is not null)) %]>
+        <div class="flex wrap center" id="cont-princ-2"></div>
+      </div>
+    </div>
+
+    <div class="main flex" style="width:850px">
+      <div class="diseño-tabla " style="width:850px">
+        <p>Registro fotográfico de fin</p>
+        <input type="hidden" id="inicioFin" value=[% array_to_string( array_filter( array("FOTO 1_3" , "FOTO 2_3"  , "FOTO 3_3" , "FOTO 4_2"), @element is not null)) %]>
+        <div class="flex wrap center " id="cont-princ-4"></div>
+      </div>
+    </div>
+
+    <div class="main flex" style="width:850px">
+      <div class="diseño-tabla "style="width:850px">
+        <p>Resultado de análisis ceramico:</p>
+        <p class="subtitulo">[%"Observaciones_1"%]</p>
+      </div>
+    </div>
+    <!-- <div class="diseño-tabla" style="width:837px">
+      <p>Resultado de análisis ceramico:</p>
+      <p class="subtitulo">[%"Observaciones_1"%]</p>
+    </div> -->
+  </div>
+  <script type="text/javascript">
+    //var cadena = document.getElementById("valor").value;
+    //console.log(cadena);
+    function Carga(){
+      imagenesInicio();
+      imagenesFin();
+    }
+    function imagenesInicio(){
+      /// creacion de imagenes
+      let str = document.getElementById("inicioFoto").value;
+      let images = str.split(',');
+      let principal = document.getElementById('cont-princ-2');
+       let valor = images.length;
+      for(i=0;i<images.length;i++){
+        if(valor>=2 & valor<3){
+          let creaimg = document.createElement('img');
+          let crearDiv = document.createElement('div');
+          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','386');
+          creaimg.setAttribute('height','326');
+          crearDiv.setAttribute('class','fotografia');
+          principal.appendChild(crearDiv);
+          crearDiv.appendChild(creaimg);
+
+        } else if(valor>=3 & valor<4){
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','266');
+          creaimg.setAttribute('height','216');
+          creaimg.setAttribute('style','padding:3px');
+          principal.appendChild(creaimg);
+
+        }else if(valor==4){
+
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Inicio/"+images[i]+".jpg");
+          creaimg.setAttribute('width','328');
+          creaimg.setAttribute('height','195');
+          creaimg.setAttribute('style','padding:6px');
+          principal.appendChild(creaimg);
+        }
+      }
+    }
+
+    function imagenesFin(){
+      /// creacion de imagenes
+      let str = document.getElementById("inicioFin").value;
+      let images = str.split(',');
+      let principal = document.getElementById('cont-princ-4');
+      let valor = images.length;
+      for(i=0;i<images.length;i++){
+        if(valor>=2 & valor<3){
+          let creaimg = document.createElement('img');
+          let crearDiv = document.createElement('div');
+          creaimg.setAttribute('src',  "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','386');
+          creaimg.setAttribute('height','326');
+          crearDiv.setAttribute('class','fotografia');
+          principal.appendChild(crearDiv);
+          crearDiv.appendChild(creaimg);
+
+        } else if(valor>=3 & valor<4){
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','266');
+          creaimg.setAttribute('height','216');
+          creaimg.setAttribute('style','padding:3px');
+          principal.appendChild(creaimg);
+
+        }else if(valor==4){
+
+          let creaimg = document.createElement('img');
+          creaimg.setAttribute('src', "file:///C:/Users/ADMIN/Documents/IMAGENES/Fin/"+images[i]+".jpg");
+          creaimg.setAttribute('width','328');
+          creaimg.setAttribute('height','195');
+          creaimg.setAttribute('style','padding:6px');
+          principal.appendChild(creaimg);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
