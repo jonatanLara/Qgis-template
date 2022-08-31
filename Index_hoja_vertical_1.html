@@ -18,19 +18,20 @@
 	        <div class="col-70">
 	          <h1 class="titulos">U LU'UMIL MAAYA WÍINIKO'OB</h1>
 	          <p class="">
-	            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento Arqueológico del Tren Maya.
-              Responsable académico: Dr. Manuel E. Pérez Rivas. Diseño de contenido: Félix Albarado Camacho Zamora</p>
+	            Análisis Regional del Sureste Mesoamericano Proyecto Marco de Salvamento <br>Arqueológico del Tren Maya.
+              </p>
+              <h5 class="">Responsable académico:Dr. Manuel E. Pérez Rivas. Diseño de contenido: Félix Albarado Camacho Zamora</h5>
 	        </div>
 	      </div>
 			</section>
 		</header>
-    <h5 class="center color-rojo">Cédula de excavación</h5>
+    <h5 class="center color-rojo">CÉDULA DE INTERVENCIÓN DE MATERIAL CERÁMICO</h5>
 		<section class="container">
 
-      <div class="container col-90">
+      <div class="container " style="width: 1000px;">
         <h5 >Datos Generales</h5>
       </div>
-			<div class="container col-20">
+			<div class="container">
         <h5>Técnicas de construcción</h5>
       </div>
 	  </section>
@@ -39,37 +40,39 @@
 			<table class="generales" style="width:716px">
 				<tr>
 					<td class="col1">Tramo</td>
-					<td class="col2">[%"Tramo"%]</td>
-					<td class="col1">Estructura</td>
-					<td class="col2">[%"ID Monumento"%]</td>
-          <td class="col1">Arqueólogo</td>
+					<td class="col2">[%"Tramo"%]_[%"ID Monumento"%]</td>
+					<td class="col1">Arqueólogo</td>
 					<td class="col2">[% substr(  "Clave de excavación" ,10,3)%]</td>
+          <td class="col1">ID Pieza</td>
+					<td class="col2">[%right("Clave de excavación",7)%]</td>
 				</tr>
 				<tr>
-
-          <td class="col1">Número de ID</td>
-					<td class="col2">[%right("Clave de excavación",7)%]</td>
+          <td class="col1">Número de bolsa</td>
+					<td class="col2">[%"Número de bolsa"%]</td>
 					<td class="col1">Descripción</td>
 					<td class="col2">[%"Descripción de pieza"%]</td>
-					<td class="col1">Estado de conservación</td>
-					<td class="col2">[%"Estado de conservación"%]</td>
+          <td class="col1">Dimensiones</td>
+					<td class="col2"><strong>Alto: </strong>[%string_to_array("Dimensiones",'x')[0]%]<br>
+	                         <strong>largo: </strong>[%string_to_array("Dimensiones",'x')[1]%]<br>
+	                         <strong>Ancho: </strong>[%string_to_array("Dimensiones",'x')[2]%]</td>
 				</tr>
 				<tr>
-					<td class="col1">Dimensiones</td>
-					<td class="col2"><strong>Alto: </strong>[%string_to_array("Dimensiones",'x')[0]%]<br>
-	                         <strong>Ancho: </strong>[%string_to_array("Dimensiones",'x')[1]%]<br>
-	                         <strong>Profundo: </strong>[%string_to_array("Dimensiones",'x')[2]%]</td>
-	        <td class="col1">Estado</td>
-	        <td class="col2">[%"Estado"%]</td>
-	        <td class="col1">Capa</td>
+          <td class="col1">Nombre de quien realiza el registro: </td>
+					<td class="col2">[%"Nombre quien registra"%]</td>
+					<td class="col1">Inicio de intervención:</td>
+					<td class="col2">[%"Fecha de registro"%]</td>
+	        <td class="col1">Capa y cuadro</td>
 	        <td class="col2">[%"Capa"%] <strong>N: </strong>[%string_to_array("Cuadro",',')[0]%]<br>
                                       <strong>E: </strong>[%string_to_array("Cuadro",',')[1]%]</td>
 				</tr>
 				<tr>
-					<td class="col1">Nombre de quien realiza el registro: </td>
-					<td class="col2">[%"Nombre quien registra"%]</td>
-					<td class="col1">Fecha de registro:</td>
-					<td class="col2">[%"Fecha de registro"%]</td>
+          <td class="col1">Nombre del que interviene</td>
+          <td class="col2">[%""%]</td>
+          <td class="col1">Fin de intervención</td>
+          <td class="col2">[%""%]</td>
+          <td class="col1">Estado</td>
+          <td class="col2">[%"Estado"%]</td>
+
 				</tr>
 
 			</table>
@@ -158,28 +161,33 @@
 
 		<section class="container">
 			<div class="container col-90">
-        <h5 class="flex">Estados de conservación  <p class="subtitulo" >Registro fotográfico principales deterioros</p></h5>
+        <h5 class="flex">Estado de conservación  <p class="subtitulo" >Registro fotográfico principales deterioros</p></h5>
       </div>
 		</section>
     <!-- IMAGENES-->
 		<div class="diseño-tabla" style="width:836px" >
-				<div style="display:flex" id="cont-princ">
-         <input type="hidden" id="conservacion" value=[% array_to_string( array_filter( array("FOTO 1" , "FOTO 2"  , "FOTO 3"), @element is not null)) %]>
-        <!--   <input type="hidden" id="valor" name="valor" value="Leon,Gato,Perro">-->
+				<div class="flex flex-reverse" id="cont-princ">
+         <input type="hidden" id="conservacion" value=[% array_to_string( array_filter( array("FOTO 1" , "FOTO 2" ), @element is not null)) %]>
+           <div class="flex" style="flex-direction: column; width: 264px;" >
+               <h5 style="">Observaciones: </h5>
+               <p class="subtitulo">[%"Observaciones"%] </p>
+               <p class="subtitulo">Estado de conservación: [%"Estado de conservación"%] </p>
+            </div>
+         </div>
         </div>
-        <h5 class="flex">Observaciones:  <p class="subtitulo">[%"Observaciones"%] </p></h5>
+
     </div>
 		<!-- -->
 		<section class="container">
-      <div class="container col-70" >
+      <div class="container " style="width:690px;">
         <h5>Características formales</h5><br>
       </div>
-			<div class="container col-30">
+			<div class="container ">
         <h5>Decoración</h5><br>
       </div>
 	  </section>
 		<div class="tabla" style="display:flex">
-			<table class="generales col-70" style="width:592px">
+			<table class="generales " style="width:592px">
 				<tr>
 					<td class="col1">Material</td>
 					<td class="col2">[%CASE
@@ -303,7 +311,12 @@
                             WHEN "Acabado de superficie" is null
                             THEN 'No presenta'
                             end %]</td>
-				</tr>
+          <td class="col1">Forma del labio:</td>
+          <td class="col2">[%""%]</td>
+
+          <td class="col1">Forma del cuerpo </td>
+          <td class="col2">[%""%]</td>
+			</tr>
 			</table>
 
 			<div class=" diseño-tabla col-30 flex" style="width:245px">
@@ -381,10 +394,7 @@
           						else 'style="background:none"'
         					  end%]>
 						</div>
-					</div>
-
-					<div class="col-50 ">
-						<div class="flex space-between">
+            <div class="flex space-between">
 								<p class="text-col2">Pastillaje</p>
                 <p class="col-50 rectangulo"
                     [%case
@@ -393,6 +403,10 @@
           						else 'style="background:none"'
         					  end%]>
 						</div>
+					</div>
+
+					<div class="col-50 ">
+
 						<div class="flex space-between">
 								<p class="text-col2">Esgrafiado</p>
                 <p class="col-50 rectangulo"
@@ -429,6 +443,9 @@
           						else 'style="background:none"'
         					  end%]>
 						</div>
+            <div class="flex space-between">
+								<p class="text-col2">Color: [%"Color de policromía"%]</p>
+						</div>
 						<div class="flex space-between">
 								<p class="text-col2">Policromía</p>
                 <p class="col-50 rectangulo"
@@ -438,11 +455,12 @@
           						else 'style="background:none"'
         					  end%]>
 						</div>
-            <div class="flex space-between">
-								<p class="text-col2">Color engobe: [%"Color de engobe"%]</p>
-						</div>
 						<div class="flex space-between">
 								<p class="text-col2">Color: [%"Color de policromía"%]</p>
+						</div>
+
+            <div class="flex space-between">
+								<p class="text-col2">Color engobe: [%"Color de engobe"%]</p>
 						</div>
 						<div class="flex space-between">
 								<p class="text-col2">Otro:  [%"Otro_1"%]</p>
@@ -461,56 +479,40 @@
 		<div class=" diseño-tabla flex"style="width:836px">
 			<div class="col-20">
 				<div class="">
-					<div class="flex space-between">
-							<p class="text-col2">Pulverlencia</p>
+          <!-- ############################################### -->
+          <div class="flex space-between">
+							<p class="text-col2">Abrasión</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Pulverlencia" IS NOT NULL
+                    when "Abrasión" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
+
 					<div class="flex space-between">
-							<p class="text-col2">Disgregación</p>
+							<p class="text-col2">Concreciones</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Disgregación" IS NOT NULL
+                    when "Concreciones" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Exfolación</p>
+          <div class="flex space-between">
+							<p class="text-col2">Craqueladuras de sales</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Exfolación" IS NOT NULL
+                    when "Craqueladuras" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Fisuras</p>
+          <div class="flex space-between">
+							<p class="text-col2">Craqueladuras de tierra</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Fisuras" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Grietas</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Grietas" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Faltantes</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Faltantes" IS NOT NULL
+                    when "Craqueladuras" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -525,195 +527,10 @@
                   end%]>
 					</div>
 					<div class="flex space-between">
-							<p class="text-col2">Desprendimiento</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Desprendimiento" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-20">
-				<div class="">
-          <div class="flex space-between">
-							<p class="text-col2">Escama</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Escama" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
 							<p class="text-col2">Desajuste</p>
               <p class="col-50 rectangulo"
                   [%case
                     when "Desajuste" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Craqueladuras</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Craqueladuras" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Eflorescencia</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Eflorescencia" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Concreciones</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Concreciones" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Velo blanquecino</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Velo blanquecino" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Suciedad superficial</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Suciedad superficial" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-          <div class="flex space-between">
-							<p class="text-col2">Hongos</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Hongos" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-				</div>
-			</div>
-			<div class="col-20">
-				<div class="">
-
-					<div class="flex space-between">
-							<p class="text-col2">Deyecciones</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Deyecciones" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Nidos</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Nidos" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Manchas de manganeso</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Manchas de manganeso" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Raicillas</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Raicillas" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Vandalismo</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Vandalismo" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Abrasión</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Abrasión" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-          <div class="flex space-between">
-							<p class="text-col2">Manchas</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Manchas" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-          <div class="flex space-between">
-							<p class="text-col2">Rayones</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Rayones" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-				</div>
-			</div>
-			<div class="col-20">
-				<div class="">
-          <div class="flex space-between">
-							<p class="text-col2">Repinte</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Repinte" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-          <div class="flex space-between">
-							<p class="text-col2">Orificios</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Orificios" IS NOT NULL
-                    then 'style="background:#BC955C"'
-                    else 'style="background:none"'
-                  end%]>
-					</div>
-					<div class="flex space-between">
-							<p class="text-col2">Restos de adhesivo</p>
-              <p class="col-50 rectangulo"
-                  [%case
-                    when "Restos de adhesivo" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -736,11 +553,142 @@
                     else 'style="background:none"'
                   end%]>
 					</div>
+				</div>
+			</div>
+			<div class="col-20">
+				<div class="">
+          <!-- ################################################## -->
+          <div class="flex space-between">
+              <p class="text-col2">Desprendimiento</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Desprendimiento" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+          </div>
+          <div class="flex space-between">
+              <p class="text-col2">Deyecciones</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Deyecciones" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+          </div>
+          <div class="flex space-between">
+							<p class="text-col2">Disgregación</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Disgregación" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+					<div class="flex space-between">
+							<p class="text-col2">Eflorescencia</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Eflorescencia" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+							<p class="text-col2">Escama</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Escama" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
           <div class="flex space-between">
 							<p class="text-col2">Escurrimiento</p>
               <p class="col-50 rectangulo"
                   [%case
                     when "Escurrimiento" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+					<div class="flex space-between">
+							<p class="text-col2">Exfolación</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Exfolación" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+							<p class="text-col2">Faltantes</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Faltantes" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+				</div>
+			</div>
+			<div class="col-20">
+				<div class="">
+          <!-- ############################################### -->
+					<div class="flex space-between">
+							<p class="text-col2">Fisuras</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Fisuras" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+          			<p class="text-col2">Fragmentos sueltos  </p>
+                <p class="text-col2">[%"Fragmentos separados (número)"%]</p>
+          </div>
+          <div class="flex space-between">
+							<p class="text-col2">Grietas</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Grietas" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+							<p class="text-col2">Hongos</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Hongos" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+              <p class="text-col2">Manchas</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Manchas" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+          </div>
+          <div class="flex space-between">
+							<p class="text-col2">Nidos</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Nidos" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+					</div>
+          <div class="flex space-between">
+							<p class="text-col2">Orificios</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Orificios" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -754,6 +702,22 @@
                     else 'style="background:none"'
                   end%]>
 					</div>
+        </div>
+			</div>
+			<div class="col-20">
+
+				<div class="">
+          <!-- ############################################### -->
+
+          <div class="flex space-between">
+              <p class="text-col2">Pulverlencia</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Pulverlencia" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+          </div>
           <div class="flex space-between">
               <p class="text-col2">Quemaduras</p>
               <p class="col-50 rectangulo"
@@ -763,31 +727,36 @@
                     else 'style="background:none"'
                   end%]>
           </div>
-				</div>
-			</div>
-      <div class="col-20">
-        <div class="">
 
           <div class="flex space-between">
-              <p class="text-col2">Restos de pigmentos</p>
+              <p class="text-col2">Raicillas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "pigmentos" IS NOT NULL
+                    when "Raicillas" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
           </div>
           <div class="flex space-between">
-              <p class="text-col2">Restos de estuco</p>
+              <p class="text-col2">Rayones</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Restos de estuco" IS NOT NULL
+                    when "Rayones" IS NOT NULL
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
           </div>
           <div class="flex space-between">
-              <p class="text-col2" style="text-align: left;" >Resane o aplicación de pastas</p>
+              <p class="text-col2">Repinte</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Repinte" IS NOT NULL
+                    then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
+          </div>
+          <div class="flex space-between">
+              <p class="text-col2" style="text-align: left;" >Resane o aplicación <br>de pastas</p>
               <p class="col-50 rectangulo"
                   [%case
                     when "Resane o aplicación de pastas" IS NOT NULL
@@ -795,10 +764,54 @@
                     else 'style="background:none"'
                   end%]>
           </div>
+
           <div class="flex space-between">
-          			<p class="text-col2">Fragmentos sueltos  </p>
-                <p class="text-col2">[%"Fragmentos separados (número)"%]</p>
+          		<p class="text-col2">Restos de adhesivo</p>
+              <p class="col-50 rectangulo"
+                  [%case
+                    when "Restos de adhesivo" IS NOT NULL
+                              then 'style="background:#BC955C"'
+                    else 'style="background:none"'
+                  end%]>
           </div>
+        </div>
+			</div>
+      <div class="col-20">
+        <div class="">
+      <!-- ############################################### -->
+
+      <div class="flex space-between">
+          <p class="text-col2">Suciedad superficial</p>
+          <p class="col-50 rectangulo"
+              [%case
+                when "Suciedad superficial" IS NOT NULL
+                then 'style="background:#BC955C"'
+                else 'style="background:none"'
+              end%]>
+      </div>
+      <div class="flex space-between">
+          <p class="text-col2">Vandalismo</p>
+          <p class="col-50 rectangulo"
+              [%case
+                when "Vandalismo" IS NOT NULL
+                then 'style="background:#BC955C"'
+                else 'style="background:none"'
+              end%]>
+      </div>
+            <div class="flex space-between">
+                <p class="text-col2">Velo blanquecino</p>
+                <p class="col-50 rectangulo"
+                    [%case
+                      when "Velo blanquecino" IS NOT NULL
+                      then 'style="background:#BC955C"'
+                      else 'style="background:none"'
+                    end%]>
+            </div>
+            <div class="flex space-between">
+                  <p class="text-col2">Otros:  </p>
+                  <p class="text-col2">[%""%]</p>
+            </div>
+
         </div>
       </div>
 		</div>
