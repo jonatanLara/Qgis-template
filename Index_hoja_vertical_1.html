@@ -48,7 +48,7 @@
 				</tr>
 				<tr>
           <td class="col1">Número de bolsa</td>
-					<td class="col2">[%"Número de bolsa"%]</td>
+					<td class="col2">[%"No. Bolsa"%]</td>
 					<td class="col1">Descripción</td>
 					<td class="col2">[%"Descripción de pieza"%]</td>
           <td class="col1">Dimensiones</td>
@@ -60,16 +60,16 @@
           <td class="col1">Nombre de quien realiza el registro: </td>
 					<td class="col2">[%"Nombre quien registra"%]</td>
 					<td class="col1">Inicio de intervención:</td>
-					<td class="col2">[%"Fecha de registro"%]</td>
+					<td class="col2">[%"Fecha inicio de intervención"%]</td>
 	        <td class="col1">Capa y cuadro</td>
 	        <td class="col2">[%"Capa"%] <strong>N: </strong>[%string_to_array("Cuadro",',')[0]%]<br>
                                       <strong>E: </strong>[%string_to_array("Cuadro",',')[1]%]</td>
 				</tr>
 				<tr>
           <td class="col1">Nombre de quien realiza la intervención</td>
-          <td class="col2">[%""%]</td>
+          <td class="col2">[%"Nombre de quien interviene"%]</td>
           <td class="col1">Fin de intervención</td>
-          <td class="col2">[%""%]</td>
+          <td class="col2">[%"Fecha fin de intervención"%]</td>
           <td class="col1">Estado</td>
           <td class="col2">[%"Estado"%]</td>
 
@@ -83,7 +83,7 @@
 								<p class="text-col2">Modelado</p>
 								<p class="col-50 rectangulo"
                     [%case
-          						when "Modelado" IS NOT NULL
+          						when "Modelado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -93,7 +93,7 @@
 								<p class="text-col2">Moldeado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Moldeado" IS NOT NULL
+          						when "Moldeado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -102,7 +102,7 @@
 								<p class="text-col2">Placas</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Placas" IS NOT NULL
+          						when "Placas" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -111,7 +111,7 @@
 								<p class="text-col2">Enrollado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Enrollado" IS NOT NULL
+          						when "Enrollado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -120,7 +120,7 @@
 								<p class="text-col2">Pastillaje</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Pastillaje" IS NOT NULL
+          						when "Pastillaje" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -129,7 +129,7 @@
 								<p class="text-col2">Paleteado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Paleteado" IS NOT NULL
+          						when "Paleteado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -138,7 +138,7 @@
 								<p class="text-col2">Placas</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Placas_1" IS NOT NULL
+          						when "Placas_1" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -147,7 +147,7 @@
 								<p class="text-col2">Torneado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Torneado" IS NOT NULL
+          						when "Torneado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -167,7 +167,7 @@
     <!-- IMAGENES-->
 		<div class="diseño-tabla" style="width:836px" >
 				<div class="flex flex-reverse" id="cont-princ">
-         <input type="hidden" id="conservacion" value=[% array_to_string( array_filter( array("FOTO 1" , "FOTO 2" ), @element is not null)) %]>
+         <input type="hidden" id="conservacion" value=[% array_to_string( array_filter( array("Foto_deterioro_1" , "Foto_deterioro_2" ), @element is not null)) %]>
             <div class="flex" style="flex-direction: column; width: 264px;" >
               <div class="diseño-tabla">
                 <h5 style="">Estado de conservación: </h5>
@@ -177,8 +177,6 @@
                 <h5 style="">Observaciones: </h5>
                 <p class="subtitulo">[%"Observaciones"%] </p>
               </div>
-
-
              </div>
          </div>
     </div>
@@ -317,10 +315,20 @@
                             THEN 'No presenta'
                             end %]</td>
           <td class="col1">Forma del labio:</td>
-          <td class="col2">[%""%]</td>
+          <td class="col2">[%CASE
+                              WHEN "Forma del labio" is not null
+                              THEN "Forma del labio"
+                              WHEN "Forma del labio" is null
+                              THEN 'No presenta'
+                              end %]</td>
 
           <td class="col1">Forma del cuerpo </td>
-          <td class="col2">[%""%]</td>
+          <td class="col2">[%CASE
+                            WHEN "Forma del cuerpo" is not null
+                            THEN "Forma del cuerpo"
+                            WHEN "Forma del cuerpo" is null
+                            THEN 'No presenta'
+                            end %]</td>
 			</tr>
 			</table>
 
@@ -331,7 +339,7 @@
 								<p class="text-col2">Incisa</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Incisa" IS NOT NULL
+          						when "Incisa" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -340,7 +348,7 @@
 								<p class="text-col2">Impronta</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Impronta" IS NOT NULL
+          						when "Impronta" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -349,7 +357,7 @@
 								<p class="text-col2">Alisada</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Alisada" IS NOT NULL
+          						when "Alisada" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -358,7 +366,7 @@
 								<p class="text-col2">Digital</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Digital" IS NOT NULL
+          						when "Digital"= 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -367,7 +375,7 @@
 								<p class="text-col2">Acanalado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Acanalado" IS NOT NULL
+          						when "Acanalado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -376,7 +384,7 @@
 								<p class="text-col2">Modelado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Modelado_1" IS NOT NULL
+          						when "Modelado_1" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -385,7 +393,7 @@
 								<p class="text-col2">Punzonado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Punzonado" IS NOT NULL
+          						when "Punzonado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -394,7 +402,7 @@
 								<p class="text-col2">Incrustación</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Incrustación" IS NOT NULL
+          						when "Incrustación" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -403,7 +411,7 @@
 								<p class="text-col2">Pastillaje</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Pastillaje_1" IS NOT NULL
+          						when "Pastillaje_1" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -416,7 +424,7 @@
 								<p class="text-col2">Esgrafiado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Esgrafiado" IS NOT NULL
+          						when "Esgrafiado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -425,7 +433,7 @@
 								<p class="text-col2">Cloissoné</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Cloissoné" IS NOT NULL
+          						when "Cloissoné" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -434,7 +442,7 @@
 								<p class="text-col2">Estucado</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Estrucado" IS NOT NULL
+          						when "Estucado" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -443,19 +451,19 @@
 								<p class="text-col2">Engobe</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Engobe" IS NOT NULL
+          						when "Engobe" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
 						</div>
             <div class="flex space-between">
-								<p class="text-col2">Color: [%"Color de policromía"%]</p>
+								<p class="text-col2">Color: [%"Color de engobe"%]</p>
 						</div>
 						<div class="flex space-between">
 								<p class="text-col2">Policromía</p>
                 <p class="col-50 rectangulo"
                     [%case
-          						when "Policromía" IS NOT NULL
+          						when "Policromía" = 'TRUE'
           						then 'style="background:#BC955C"'
           						else 'style="background:none"'
         					  end%]>
@@ -485,35 +493,35 @@
 							<p class="text-col2">Abrasión</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Abrasión" IS NOT NULL
+                    when "Abrasión" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
 
 					<div class="flex space-between">
-							<p class="text-col2">Concreciones</p>
+							<p class="text-col2">Concreciones de sales</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Concreciones" IS NOT NULL
+                    when "Concreciones de sales" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
           <div class="flex space-between">
-							<p class="text-col2">Craqueladuras de sales</p>
+							<p class="text-col2">Concreciones de tierra</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Craqueladuras" IS NOT NULL
+                    when "Concreciones de tierras" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
           <div class="flex space-between">
-							<p class="text-col2">Craqueladuras de tierra</p>
+							<p class="text-col2">Craqueladuras</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Craqueladuras" IS NOT NULL
+                    when "Craqueladuras" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -522,7 +530,7 @@
 							<p class="text-col2">Deformación</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Deformación" IS NOT NULL
+                    when "Deformación" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -531,7 +539,7 @@
 							<p class="text-col2">Desajuste</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Desajuste" IS NOT NULL
+                    when "Desajuste" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -540,7 +548,7 @@
 							<p class="text-col2">Desgaste</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Desgaste" IS NOT NULL
+                    when "Desgaste" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -549,7 +557,7 @@
 							<p class="text-col2">Despostilladura</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Despostilladura" IS NOT NULL
+                    when "Despostilladura" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -563,7 +571,7 @@
               <p class="text-col2">Desprendimiento</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Desprendimiento" IS NOT NULL
+                    when "Desprendimiento" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -572,7 +580,7 @@
               <p class="text-col2">Deyecciones</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Deyecciones" IS NOT NULL
+                    when "Deyecciones" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -581,7 +589,7 @@
 							<p class="text-col2">Disgregación</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Disgregación" IS NOT NULL
+                    when "Disgregación" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -590,7 +598,7 @@
 							<p class="text-col2">Eflorescencia</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Eflorescencia" IS NOT NULL
+                    when "Eflorescencia" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -599,7 +607,7 @@
 							<p class="text-col2">Escama</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Escama" IS NOT NULL
+                    when "Escama" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -608,16 +616,16 @@
 							<p class="text-col2">Escurrimiento</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Escurrimiento" IS NOT NULL
+                    when "Escurrimiento" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
 					</div>
 					<div class="flex space-between">
-							<p class="text-col2">Exfolación</p>
+							<p class="text-col2">Exfoliación</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Exfolación" IS NOT NULL
+                    when "Exfoliación" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -626,7 +634,7 @@
 							<p class="text-col2">Faltantes</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Faltantes" IS NOT NULL
+                    when "Faltantes" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -640,7 +648,7 @@
 							<p class="text-col2">Fisuras</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Fisuras" IS NOT NULL
+                    when "Fisuras" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -653,7 +661,7 @@
 							<p class="text-col2">Grietas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Grietas" IS NOT NULL
+                    when "Grietas" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -662,7 +670,7 @@
 							<p class="text-col2">Hongos</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Hongos" IS NOT NULL
+                    when "Hongos" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -671,7 +679,7 @@
               <p class="text-col2">Manchas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Manchas" IS NOT NULL
+                    when "Manchas" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -680,7 +688,7 @@
 							<p class="text-col2">Nidos</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Nidos" IS NOT NULL
+                    when "Nidos" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -689,7 +697,7 @@
 							<p class="text-col2">Orificios</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Orificios" IS NOT NULL
+                    when "Orificios" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -698,7 +706,7 @@
 							<p class="text-col2">Partes agregadas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Partes agregadas" IS NOT NULL
+                    when "Partes agregadas" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -711,10 +719,10 @@
           <!-- ############################################### -->
 
           <div class="flex space-between">
-              <p class="text-col2">Pulverlencia</p>
+              <p class="text-col2">Pulverulencia</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Pulverlencia" IS NOT NULL
+                    when "Pulverulencia" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -723,7 +731,7 @@
               <p class="text-col2">Quemaduras</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Quemaduras" IS NOT NULL
+                    when "Quemaduras (número)" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -733,7 +741,7 @@
               <p class="text-col2">Raicillas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Raicillas" IS NOT NULL
+                    when "Raicillas" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -742,7 +750,7 @@
               <p class="text-col2">Rayones</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Rayones" IS NOT NULL
+                    when "Rayones" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -751,7 +759,7 @@
               <p class="text-col2">Repinte</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Repinte" IS NOT NULL
+                    when "Repinte" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -760,7 +768,7 @@
               <p class="text-col2" style="text-align: left;" >Resane o aplicación <br>de pastas</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Resane o aplicación de pastas" IS NOT NULL
+                    when "Resane o aplicación de pastas" = 'TRUE'
                     then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
@@ -770,8 +778,8 @@
           		<p class="text-col2">Restos de adhesivo</p>
               <p class="col-50 rectangulo"
                   [%case
-                    when "Restos de adhesivo" IS NOT NULL
-                              then 'style="background:#BC955C"'
+                    when "Restos de adhesivo" = 'TRUE'
+                    then 'style="background:#BC955C"'
                     else 'style="background:none"'
                   end%]>
           </div>
@@ -785,7 +793,7 @@
           <p class="text-col2">Suciedad superficial</p>
           <p class="col-50 rectangulo"
               [%case
-                when "Suciedad superficial" IS NOT NULL
+                when "Suciedad superficial" = 'TRUE'
                 then 'style="background:#BC955C"'
                 else 'style="background:none"'
               end%]>
@@ -794,7 +802,7 @@
           <p class="text-col2">Vandalismo</p>
           <p class="col-50 rectangulo"
               [%case
-                when "Vandalismo" IS NOT NULL
+                when "Vandalismo" = 'TRUE'
                 then 'style="background:#BC955C"'
                 else 'style="background:none"'
               end%]>
@@ -803,14 +811,14 @@
                 <p class="text-col2">Velo blanquecino</p>
                 <p class="col-50 rectangulo"
                     [%case
-                      when "Velo blanquecino" IS NOT NULL
+                      when "Velo Blanquecino" = 'TRUE'
                       then 'style="background:#BC955C"'
                       else 'style="background:none"'
                     end%]>
             </div>
             <div class="flex space-between">
                   <p class="text-col2">Otros:  </p>
-                  <p class="text-col2">[%""%]</p>
+                  <p class="text-col2">[%"Otros"%]</p>
             </div>
 
         </div>
